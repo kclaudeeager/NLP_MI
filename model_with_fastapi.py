@@ -23,7 +23,7 @@ app = FastAPI(
 
 # load the sentiment model
 with open(
-    join(dirname(realpath(__file__)), "models/TF_RF_model1.pkl"), "rb"
+    join(dirname(realpath(__file__)), "models/TF_MNB_model.pkl"), "rb"
 ) as f:
     model = joblib.load(f)
 
@@ -68,7 +68,7 @@ def predict_sentiment(reply: str):
     # clean the reply
     cleaned_reply = text_cleaning(reply)
     print(cleaned_reply)
-    vectorizer = pickle.load(open('vectorizers/vectorizer_with_CV.sav', 'rb'))
+    vectorizer = pickle.load(open('vectorizers/vectorizer_with_TFIDF.sav', 'rb'))
     print(type(vectorizer))
     text_vector = vectorizer.transform([cleaned_reply])
     print(text_vector)
