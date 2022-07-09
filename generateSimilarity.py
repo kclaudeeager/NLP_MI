@@ -81,7 +81,7 @@ def getTweetDict(tweetList):
 def get_recommendations(title, cosine_sim, tweetList,limit):
     # Get the index of the tweet that matches the title
     twitDict=getTweetDict(tweetList)
-    #print(twitDict)
+    print(twitDict)
     # print(title)
     # print(tweetList[0])
     # print(twitDict.get(0))
@@ -94,7 +94,7 @@ def get_recommendations(title, cosine_sim, tweetList,limit):
     sim_scores = sorted(sim_scores,key=lambda x:x[1],reverse=True)
 
     #print(len(sim_scores))
-    sim_scores = sim_scores[1:limit]
+    #sim_scores = sim_scores[1:limit]
     #print(sim_scores)
     # Get the tweet indices
     tweet_indices = [i[0] for i in sim_scores]
@@ -132,7 +132,7 @@ def create_recommendation(sentence: str,corpus:list):
     cosine_sim=cosineSimillarity(corpus)
     print(cosine_sim)
     print("Sentence: ",sentence)
-    recommendation=get_recommendations(sentence,cosine_sim, corpus,5)
+    recommendation=get_recommendations(sentence,cosine_sim, corpus,3)
     print(recommendation)
     print("*******************************************************************************************\n\n")
   
